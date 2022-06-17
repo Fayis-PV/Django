@@ -1,0 +1,44 @@
+{% extends 'nohome_base.html' %}
+{% block content %}
+{% if messages%}
+{% for message in messages %}
+<div class="container">
+    <div class="alert alert-danger alert-dismissable fade show" role="alert">
+        <strong>{{message}}</strong>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+</div>
+{% endfor %}
+{% endif %}
+    <div class="contact">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="titlepage">
+                    <h2>Login Page</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <form id="request" class="main_form" action="{% url 'accounts:login' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                    <div class="col-md-12 ">
+                        <input class="contactus" placeholder="User Name" type="text" name="username"> 
+                    </div>
+                    <div class="col-md-12">
+                        <input class="contactus" placeholder="Password" type="password" name="password"> 
+                    </div>
+                    <div class="col-md-12">
+                        <button class="send_btn">Login</button>
+                    </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}

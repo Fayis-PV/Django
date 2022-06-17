@@ -1,0 +1,33 @@
+{% extends 'nohome_base.html' %}
+{% block content %}
+{% load static %}
+<div  class="products">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <div class="titlepage">
+               <h2>Our Products</h2>
+            </div>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-12">
+            <div class="our_products">
+               <div class="row">
+                  {% if product_list %}
+                  {%for product in product_list %}
+                  <div class="col-md-4">
+                     <div class="product_box">
+                        <figure><img src='{{product.product_image.url}}' alt="#"/></figure>
+                        <h3>{{product.product_name}}</h3>
+                     </div>
+                  </div>
+                  {% endfor %}
+                  {% endif %}
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock %}
